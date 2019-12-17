@@ -6,6 +6,8 @@ OpenDaylight Unimgr.
 
 ## Prerequisites
 
+### OpenDaylight
+
 The MEF-Presto WIM connector assumes that the Presto SDK demo VM is running OpenDaylight Unimgr and mininet.
 The VM can be downloaded from the following locations: 
 
@@ -18,15 +20,11 @@ Password: mef-dev
 Here are the commands to unzip after you have downloaded both the files
 
 * zip -s 0 Presto-SDK.zip --out Presto-SDK-full.zip
-* unzip Presto-SDK-full.zip
-
-Alternatively, you can install mininet and Opendaylight by yourself. Presto SDK R2 is not
-part of official distribution of Opendaylight yet, but you can download the sources from 
-this GitHub fork: https://github.com/donaldh/unimgr/tree/presto-20180307  
+* unzip Presto-SDK-full.zip 
 
 If you need to manually start OpenDaylight, these are the steps:
 
-### Start OpenDaylight
+#### Start OpenDaylight
 
 ```sh
 % cd unimgr-karaf-0.3.1.SNAPSHOT
@@ -50,13 +48,13 @@ Hit '<ctrl-d>' or type 'system:shutdown' or 'logout' to shutdown OpenDaylight.
 
 opendaylight-user@root>
 ```
-### Enable OVS Driver in OpenDaylight
+#### Enable OVS Driver in OpenDaylight
 
 ```sh
 opendaylight-user@root>feature:install odl-unimgr-ovs-driver
 ```
 
-### Launch Mininet
+### Mininet
 
 There is a script provided for starting mininet:
 
