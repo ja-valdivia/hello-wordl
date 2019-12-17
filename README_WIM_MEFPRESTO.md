@@ -6,9 +6,10 @@ OpenDaylight Unimgr.
 
 ## Prerequisites
 
+The MEF-Presto WIM connector assumes that the Presto SDK demo VM is running OpenDaylight Unimgr and mininet.
+
 ### OpenDaylight
 
-The MEF-Presto WIM connector assumes that the Presto SDK demo VM is running OpenDaylight Unimgr and mininet.
 The VM can be downloaded from the following locations: 
 
 * Presto-SDK.zip (https://mef.box.com/s/h5j78genqwx2y4z7msho6119wxqnpffe)
@@ -56,11 +57,25 @@ opendaylight-user@root>feature:install odl-unimgr-ovs-driver
 
 ### Mininet
 
-There is a script provided for starting mininet:
+From GitHub clone MEF-LSO Presto SDk
 
 ```sh
-% cd mininet
-% sudo python create_topology.py
+git clone https://github.com/MEF-GIT/MEF-LSO-Presto-SDK.git
+```
+
+Start Mininet in a docker container:
+
+```sh
+docker run -it --rm -p 6699:6640 -v /home/osm/MEF-LSO-Presto-SDK/documentation/tutorial/mininet:/root/config --privileged iwaseyusuke/mininet
+```
+
+Get into the docker container and inside the container start mininet:
+
+```sh
+% osm@osm:~/osm_code/branches/v7/RO/RO/osm_ro/wim$ docker ps | grep mininet
+0b21e7cd1a43        iwaseyusuke/mininet                        "/ENTRYPOINT.sh"         23 hours ago        Up 23 hours             6633/tcp, 6653/tcp, 0.0.0.0:6699->6640/tcp   musing_ellis
+% docker exec -ti 0b21e7cd1a43 bash
+root@0b21e7cd1a43:~# python config/create_topology.py 192.168.56.105
 ** Creating network
 *** Adding controller
 Unable to contact the remote controller at 127.0.0.1:6633
@@ -106,11 +121,6 @@ The JSON request looks like this:
 }
 ```
 
-### Configure mininet default state
-It is needed to remove some of the default flow rules from mininet switches
-```
-% sudo python clear_edge_switches.py
-```
 
 # Tutorial
 
