@@ -292,7 +292,7 @@ nsd:nsd-catalog:
                 # NOTE: Validate the entry below
                 vnfd-connection-point-ref: barna-cp0
 ```
-You can see in the filed "vim-network-name" the value "external", this will important in nexts steps.
+You can see in the filed "vim-network-name" the value "external", this will be important in nexts steps.
 
 Pack the new NS descriptor into "mefpresto_vlan_nsd.tar.gz" using the following file.
 
@@ -345,7 +345,7 @@ nsd:nsd-catalog:
                 vnfd-connection-point-ref: barna-cp0
 
 ```
-You can see in the filed "vim-network-name" the value "test-vlan-mefpresto", this will important in nexts steps.
+You can see in the filed "vim-network-name" the value "test-vlan-mefpresto", this will be important in nexts steps.
 
 Create the NS descriptors:
 
@@ -390,7 +390,7 @@ It is important the configuration parameter:
  {"condition": { "name": "test-vlan-mefpresto" }, "vim_external_port": { "switch":"openflow:1", "port":"2" }}]}'
 ```
 
-This parameter indicates witch port of the switch "openflow:1" it must be used in VIM when is atached to network "external" (port 1) or network "test-vlan-mefpresto" (port 2).
+This parameter indicates witch port of the switch "openflow:1" it must be used in VIM when is attached to network "external" (port 1) or network "test-vlan-mefpresto" (port 2).
 
 ## Step 3 - Create the MEF-Presto WIM 
 
@@ -453,7 +453,7 @@ osm ns-create \
 --config '{vnf:[{member-vnf-index: "1", vim_account: madrid-datacenter}, {member-vnf-index: "2", vim_account: barcelona-datacenter}]}'
 ```
 
-The RESTCONF call in the MEF-Presto connector looks like this:
+The RESTCONF call in the MEF-Presto connector to SDN OpenDaylight looks like this:
 
 ```
 POST /restconf/restconf/operations/tapi-connectivity:create-connectivity-service
@@ -528,7 +528,7 @@ osm ns-create \
 --config '{vnf:[{member-vnf-index: "1", vim_account: madrid-datacenter}, {member-vnf-index: "2", vim_account: barcelona-datacenter}]}'
 ```
 
-The RESTCONF call in the MEF-Presto connector looks like this:
+The RESTCONF call in the MEF-Presto connector to SDN OpenDaylight looks like this:
 
 ```
 POST /restconf/restconf/operations/tapi-connectivity:create-connectivity-service
